@@ -1,0 +1,16 @@
+<div style="text-align:center">
+  <h1>
+    {{title}}
+  </h1>
+  <input type="number" name="number1"[(ngModel)]="num1">
+  <input type="number" name="number2"[(ngModel)]="num2">
+  <br><br>
+  <button (click)="sumar()">sumar</button>
+  <button (click)="restar()">restar</button>
+  <button (click)="dividir()">dividir</button>
+  <button (click)="multiplicar()">multiplicar</button>
+  <br>
+  <h3>Resultado : {{num3}}</h3>
+
+</div>
+<router-outlet></router-outlet>
