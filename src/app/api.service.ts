@@ -18,36 +18,36 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   sumar(a: number, b: number): Observable<ApiResult> {
-    const operacion = a.toString() + '+' + b.toString();
-    const url = this.apiUrl + 'evaluate';
-    const body = { expr: operacion };
+    
+    var url = this.apiUrl + 'evaluate';
+    const body = { expr: a.toString() + '+' + b.toString()}
     return this.http.post(url, body).pipe(
       map((res: Object) => res as ApiResult)
     );
   }
 
   restar(a: number, b: number): Observable<ApiResult> {
-    const operacion = a.toString() + '-' + b.toString();
-    const url = this.apiUrl + 'evaluate';
-    const body = { expr: operacion };
+   
+    var url = this.apiUrl + 'evaluate';
+    const body = { expr: a.toString() + '-' + b.toString()}
     return this.http.post(url, body).pipe(
       map((res: Object) => res as ApiResult)
     );
   }
 
   multiplicar(a: number, b: number): Observable<ApiResult> {
-    const operacion = a.toString() + '*' + b.toString();
-    const url = this.apiUrl + 'evaluate';
-    const body = { expr: operacion };
+   
+    var url = this.apiUrl + 'evaluate';
+    const body = { expr: a.toString() + '*' + b.toString()}
     return this.http.post(url, body).pipe(
       map((res: Object) => res as ApiResult)
     );
   }
 
   dividir(a: number, b: number): Observable<ApiResult> {
-    const operacion = a.toString() + '/' + b.toString();
-    const url = this.apiUrl + 'evaluate';
-    const body = { expr: operacion };
+    
+    var url = this.apiUrl + 'evaluate';
+    const body = { expr: a.toString() + '/' + b.toString()};
     return this.http.post(url, body).pipe(
       map((res: Object) => res as ApiResult)
     );
