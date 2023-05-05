@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { ApiService} from './api.service';
+import { ApiResult } from './api.service';
+
 
 @Component({
   selector: 'app-root',
@@ -8,20 +11,45 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'calculadora';
  
-  num1 = 0;
-  num2 = 0;
-  num3 = 0;
+ 
 
-  sumar(){
-    this.num3=this.num1+this.num2;
+  
+  a: number=0;
+  b: number=0;
+  resultado: number=0;
+ 
+
+  constructor(private apiService: ApiService) { }
+
+  sumar() {
+    this.apiService.sumar(this.a, this.b).subscribe(res => {
+      this.resultado = res.result;
+     
+    });
   }
-  restar(){
-    this.num3=this.num1-this.num2;
+
+  restar() {
+    this.apiService.restar(this.a, this.b).subscribe(res => {
+      this.resultado = res.result;
+      
+    });
   }
-  dividir(){
-    this.num3=this.num1/this.num2;
+
+  multiplicar() {
+    this.apiService.multiplicar(this.a, this.b).subscribe(res => {
+      this.resultado = res.result;
+      
+    });
   }
-  multiplicar(){
-    this.num3=this.num1*this.num2;
+
+  dividir() {
+    this.apiService.dividir(this.a, this.b).subscribe(res => {
+      this.resultado = res.result;
+      
+    });
   }
+
+
 }
+
+  
